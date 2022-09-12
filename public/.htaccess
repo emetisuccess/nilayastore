@@ -1,0 +1,16 @@
+RewriteEngine on
+RewriteRule ^(index|contact|register|login|about|shop|cart|pay|logout)$ $1.php [NC,L]
+
+RewriteRule ^single-product/(\d+)/(\d+)$ single-product.php?p_id=$1&cat_id=$2 [NC,L]
+
+RewriteRule ^shop/(\d+)/(\D+)$ shop.php?cat_id=$1&cat_title=$2 [NC,L]
+
+RewriteRule ^cart/(\d+)$ cart.php?add=$1 [NC,L]
+
+ErrorDocument 404 /e_commerce/resources/templates/back/404.php
+
+
+
+
+
+
