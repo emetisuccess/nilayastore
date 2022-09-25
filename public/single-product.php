@@ -48,7 +48,7 @@ if (isset($_GET['p_id'])) {
                 </div>
             </div>
             <div class="col-md-7">
-                <h5 class="font-baloo font-size-20 mt-3 mb-0"><?php echo $row['product_title']; ?></h5>
+                <h5 class="font-baloo font-size-20 mt-3 mb-0 display-4"><?php echo $row['product_title']; ?></h5>
                 <small>by <?php echo $row['cat_title']; ?></small>
                 <div class="my-2">
                     <div class="font-size-16">

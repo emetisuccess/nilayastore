@@ -1,3 +1,14 @@
+Options +MultiViews
+
+
+RewriteEngine on 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
+RewriteRule ^ /%1 [R=301,NE,L]
+
+
 RewriteEngine on
 RewriteRule ^(index|contact|register|login|about|shop|cart|pay|logout)$ $1.php [NC,L]
 
@@ -7,7 +18,22 @@ RewriteRule ^shop/(\d+)/(\D+)$ shop.php?cat_id=$1&cat_title=$2 [NC,L]
 
 RewriteRule ^cart/(\d+)$ cart.php?add=$1 [NC,L]
 
+
+
+ErrorDocument 403 /e_commerce/public/index.php
 ErrorDocument 404 /e_commerce/resources/templates/back/404.php
+ErrorDocument 500 /e_commerce/public/index.php
+ErrorDocument 400 /e_commerce/public/index.php
+ErrorDocument 401 /e_commerce/public/index.php
+
+
+
+##Redirect none existing page to index.php
+Options +SymLinksIfOwnerMatch
+RewriteEngine on 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /e_commerce/public/index.php [L]
 
 
 

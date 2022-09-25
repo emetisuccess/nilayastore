@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-lg-8 offset-lg-2 text-center">
                 <div class="breadcrumb-text">
-                    <p></p><br/>
+                    <p></p><br />
                     <p>Fresh and Organic</p>
                     <h1>Cart</h1>
                 </div>
@@ -208,8 +208,6 @@
                 </div>
             </div>
         </div>
-
-
         <div class="row justify-content-center" id="related">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <!-- top sales carousel -->

@@ -10,7 +10,7 @@
                     <div class="hero-text-tablecell">
                         <p class="subtitle">Fresh & Organic</p>
                         <h1>Shampoo Best Hair Cleaner</h1>
-                        <div class="hero-btns">
+                        <div class="hero-btns mx-5">
                             <a href="shop.php" class="boxed-btn">Products Collection</a>
                             <a href="contact.php" class="bordered-btn">Contact Us</a>
                         </div>
@@ -35,7 +35,7 @@
     <p class="alert alert-success msg float-right" style="display:none;"></p>
 </div>
 <!-- product section -->
-<div class="product-section mt-150 mb-150">
+<div class="product-section mt-150 ">
     <div class="container-fluid w-75">
         <div class="row d-flex float-left">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mr-3 ">
@@ -72,27 +72,37 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="card mb-3 border-0">
-                    <div class="card-header product-header">
-                        <h4 class="text-white text-center">Conditioners</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <?php conditioners(); ?>
-                        </div>
-                    </div>
-                    <div style="float: right;">
-                        <h6 style="float: right;"><a href="shop.php?conditioner" class="text-dark">View
-                                More</a></h6>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 </div>
+<div class="container-fluid w-75">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card mb-3 border-0">
+                <div class="card-header" style="background-color:lightcyan;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="">Conditioners</h4>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a href="shop.php?conditioner">
+                                <span style="font-size:19px; color:black;">See More</span> <i
+                                    class="fa fa-angle-right text-dark"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <?php conditioners(); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!-- end product section -->
 
 <!-- cart banner section -->

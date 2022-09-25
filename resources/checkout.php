@@ -71,6 +71,13 @@ function get_cart_items()
     }
 }
 
+
+// geting the search result;
+if (isset($_POST['search'])) {
+    $search_input = $_POST['search_input'];
+    redirect("/e_commerce/public/shop.php?search_result=$search_input");
+}
+
 if (isset($_POST['update_qty'])) {
 
     $p_id = $_POST['pro_id'];

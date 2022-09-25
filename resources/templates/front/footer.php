@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row justify-content-between mb-0">
             <div class="col-lg-4 col-12 ">
-                <div class="footer-box about-widget text-center">
+                <div class="footer-box about-widget text-center animated bounceIn">
                     <h3 class="text-white">NilayaStore</h3>
                     <p>
                         Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit
@@ -12,7 +12,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-lg-4 col-12 mb-3 text-center">
+            <div class="col-lg-4 col-12 mb-3 text-center animated bounceIn">
                 <h3 class="font-rubik font-size-20 text-white">Get In Touch</h3>
                 <ul class="list-unstyled text-white-50">
                     <li>34/8, Nwangiba road <br> use offot, Uyo <br> Akwa Ibom State, Nigeria</li>
@@ -21,10 +21,11 @@
                 </ul>
             </div>
 
-            <div class="col-lg-4 col-12 mb-3 text-center">
+            <div class="col-lg-4 col-12 mb-3 text-center animated bounceIn">
                 <h3 class="font-rubik font-size-20 text-white">Information</h3>
                 <div class="d-flex flex-column flex-wrap">
-                    <a href="/e_commerce/public/about.php" class="font-rale font-size-14 text-white-50 pb-1">About Us</a>
+                    <a href="/e_commerce/public/about.php" class="font-rale font-size-14 text-white-50 pb-1">About
+                        Us</a>
                     <a href="#" class="font-rale font-size-14 text-white-50 pb-1">Delivery
                         Information</a>
                     <a href="#" class="font-rale font-size-14 text-white-50 pb-1">Privacy

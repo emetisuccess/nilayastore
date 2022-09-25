@@ -4,6 +4,10 @@
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
 
+	.main-menu {
+		display: none;
+	}
+
 	.toggler {
 		display: none;
 	}
@@ -57,6 +61,9 @@
 
 /* Tablet Layout: 768px. */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+	.main-menu {
+		display: none;
+	}
 
 	.toggler {
 		display: none;

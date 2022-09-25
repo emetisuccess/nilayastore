@@ -54,12 +54,40 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card mb-3 border-0">
-                    <div class="card-header product-header">
-                        <h4 class="text-white">Search Results</h4>
-                    </div>
                     <div class="card-body">
                         <div class="row">
-                            <?php search_result(); ?>
+                            <?php
+                                $result = escape_string($_GET['search_result']);
+                                $query = query("SELECT * FROM products WHERE product_keywords LIKE '%$result%' ");
+                                confirm($query);
+                                $count = mysqli_num_rows($query);
+                                if ($count > 0) :
+                                    while ($row = fetch_array($query)) {
+                                        $product_title = substr($row['product_title'], 0, 12) . "..";
+                                        $products = <<<DELIMETER
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center mb-4">
+                                            <div class="card" style="padding:0px; border-radius:14px;">
+                                            <div class="card-body">
+                                            <a href="/e_commerce/public/single-product/{$row["product_id"]}/{$row["product_category_id"]}">
+                                            <img src="/e_commerce/resources/uploads/{$row['product_image']}" alt='' style='height:150px; border-radius:12px;'>
+                                            </a>
+                                            </div>
+                                            <div class="card-footer">
+                                            <div>
+                                            <h6 class='mb-0'>{$product_title}</h6>
+                                            <p class="text-bold">&#8358;{$row['product_price']}</p>
+                                            </div>
+                                            <a href="/e_commerce/public/cart/{$row["product_id"]}" add="{$row["product_id"]}" style="background-color:#F28123; border-radius:16px" class="btn btn-sm text-white product">
+                                            Add to <i class="fas fa-shopping-cart"></i></a>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            DELIMETER;
+                                        echo $products;
+                                    }
+                                else : echo "<h3> $result doesn't exist</h3>";
+                                endif;
+                                ?>
                         </div>
                     </div>
                 </div>
@@ -113,20 +141,6 @@
         <?php
         }
         ?>
-
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="pagination-wrap ">
-                    <ul>
-                        <li><a href="#">Prev</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a class="active" href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">Next</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 <!-- end products -->

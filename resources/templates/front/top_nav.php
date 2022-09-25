@@ -10,7 +10,7 @@
 <div class="top-header-area" id="sticker">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-sm-12 text-center">
+            <div class="col-lg-12 col-md-12 col-sm-12 col text-center">
                 <div class="main-menu-wrap">
                     <!-- logo -->
                     <div class="site-logo">
@@ -26,23 +26,23 @@
                     <nav class="main-menu">
                         <ul>
                             <li>
-                                <form action="/e_commerce/public/shop.php?search_result" method="POST" class="form-row">
+                                <form method="POST" class="form-row">
                                     <div class="form-group my-3 mr-1">
-                                        <input type="text" name="search" size="65"
+                                        <input type="text" name="search_input" size="65"
                                             placeholder="Search Products, Brands and Keywords"
                                             class="form-control border-0 p-4">
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" name="submit"
+                                        <button type="submit" name="search"
                                             style="background-color:#F28123; margin-top:1.2rem;"
                                             class="btn text-white py-2">Search</button>
                                     </div>
                                 </form>
                             </li>
                             <li>
-                                <div class="header-icons">
+                                <div class="header-icons mt-2">
                                     <a class="shopping-cart" href="/e_commerce/public/cart">
-                                        <i class="fa fa-shopping-cart"></i>
+                                        <i class="fa fa-shopping-cart" style="font-size: 18px ;"></i>
                                         <sup class="badge" id="cart_items"></sup>
                                     </a>
                                     <!-- <a class="mobile-hide search-bar-icon" href="#">
@@ -56,7 +56,6 @@
                                         echo $link;
                                     } else {
                                         $link = <<<DELIMETER
-                                        <a href="/e_commerce/public/register"><i class="fa fa-user"></i> Register</a>
                                         <a href="/e_commerce/public/login"><i class="fa fa-lock"></i> Login</a>
                                         DELIMETER;
                                         echo $link;
@@ -135,7 +134,6 @@
                                     echo $link;
                                 }
                                 ?>
-
                             </li>
                         </ul>
                     </nav>
@@ -152,6 +150,7 @@
         </div>
     </div>
 </div>
+
 
 
 <!-- search area -->

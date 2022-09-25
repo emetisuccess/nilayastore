@@ -47,5 +47,6 @@
     </div>
     <!-- /.container-fluid -->
 </div>
+
 <!-- /#page-wrapper -->
 <?php include(TEMPLATE_BACK . DS . "footer.php"); ?>

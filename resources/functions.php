@@ -108,35 +108,6 @@ function product_count()
     echo $count;
 }
 
-// function products()
-// {
-//     $query = query("SELECT * FROM products");
-//     confirm($query);
-
-//     while ($row = fetch_array($query)) {
-//         $product_title = substr($row['product_title'], 0, 12) . "..";
-//         $products = <<<DELIMETER
-//                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center mb-4">
-//                     <div class="card" style="padding:0px; border-radius:14px;">
-//                         <div class="card-body">
-//                             <a href="single-product/{$row["product_id"]}/{$row["product_category_id"]}">
-//                             <img src="/e_commerce/resources/uploads/{$row['product_image']}" alt='' style='height:150px; border-radius:12px;'>
-//                             </a>
-//                         </div>
-//                         <div class="card-footer">
-//                             <div>
-//                                 <h6 class='mb-0'>{$product_title}</h6>
-//                                 <p class="text-bold">&#36;{$row['product_price']}</p>
-//                             </div>
-//                                 <a href="/e_commerce/public/cart/{$row["product_id"]}"  style="background-color:#F28123; border-radius:16px" class="btn btn-sm text-white product"><i class="fas fa-shopping-cart"></i>
-//                                 Add to Cart</a>
-//                             </div>
-//                         </div>
-//                 </div>
-//         DELIMETER;
-//         echo $products;
-//     }
-// }
 
 function naturalshampoo()
 {
@@ -179,7 +150,7 @@ function conditioners()
     while ($row = fetch_array($query)) {
         $product_title = substr($row['product_title'], 0, 5) . "..";
         $products = <<<DELIMETER
-                <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 mb-3 text-center">
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 text-center mb-3">
                     <div class="card" style="padding:0px; border-radius:14px;">
                         <div class="card-body">
                             <a href="single-product/{$row["product_id"]}/{$row["product_category_id"]}">
@@ -212,7 +183,7 @@ function shopProducts()
         $product_title = substr($row['product_title'], 0, 9) . "..";
 
         $shop_products = <<<DELIMETER
-        <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mb-3 text-center">
+        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 mb-3 text-center">
             <div class="card" style="padding:0px; border-radius:14px;">
                 <div class="card-body">
                     <a href="single-product/{$row["product_id"]}/{$row["product_category_id"]}">
@@ -797,7 +768,6 @@ if (isset($_POST['cart_count'])) {
 //********************* cart section ends******************/
 
 
-
 function show_product_based_on_category_clicked()
 {
     if (isset($_GET['cat_id'])) {
@@ -837,44 +807,6 @@ function show_product_based_on_category_clicked()
     }
 }
 
-
-function search_result()
-{
-    if (isset($_POST['submit'])) {
-        $search = $_POST['search'];
-        $query = query("SELECT * FROM products WHERE product_keywords LIKE '%$search%'");
-        confirm($query);
-        $count = mysqli_num_rows($query);
-        if ($count > 0) {
-            while ($row = fetch_array($query)) {
-                $product_title = substr($row['product_title'], 0, 12) . "..";
-                $products = <<<DELIMETER
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center mb-4">
-                    <div class="card" style="padding:0px; border-radius:14px;">
-                    <div class="card-body">
-                    <a href="/e_commerce/public/single-product/{$row["product_id"]}/{$row["product_category_id"]}">
-                    <img src="/e_commerce/resources/uploads/{$row['product_image']}" alt='' style='height:150px; border-radius:12px;'>
-                    </a>
-                    </div>
-                    <div class="card-footer">
-                    <div>
-                    <h6 class='mb-0'>{$product_title}</h6>
-                    <p class="text-bold">&#8358;{$row['product_price']}</p>
-                    </div>
-                    <a href="/e_commerce/public/cart/{$row["product_id"]}" add="{$row["product_id"]}" style="background-color:#F28123; border-radius:16px" class="btn btn-sm text-white product">
-                    Add to <i class="fas fa-shopping-cart"></i></a>
-                    </div>
-                    </div>
-                    </div>
-                    DELIMETER;
-                echo $products;
-            }
-        } else {
-            echo "<h3 class='text-center'>No Such Product</h3>";
-            // redirect("/e_commerce/public/shop.php?search_result");
-        }
-    }
-}
 
 
 function register_user()
