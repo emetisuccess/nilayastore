@@ -101,35 +101,35 @@
                         <ul class=" list-group list-group-flush list-unstyled">
                             <li class="list-group-item">
                                 <i class="fa fa-home"></i> &nbsp;
-                                <a href="/e_commerce/public/index" style="color:#F28123;">Home</a>
+                                <a href="/e_commerce/public/index" class="text-dark">Home</a>
                             </li>
                             <li class="list-group-item">
                                 <i class="fa fa-address-book"></i> &nbsp;
-                                <a href="/e_commerce/public/about" style="color:#F28123;">About</a>
+                                <a href="/e_commerce/public/about" class="text-dark">About</a>
                             </li>
                             <li class="list-group-item">
                                 <i class="fa fa-address-card"></i> &nbsp;
-                                <a href="/e_commerce/public/contact" style="color:#F28123;">Contact</a>
+                                <a href="/e_commerce/public/contact" class="text-dark">Contact</a>
                             </li>
                             <li class="list-group-item">
                                 <i class="fa fa-shopping-bag"></i> &nbsp;
-                                <a href="/e_commerce/public/shop" style="color:#F28123;">Shop</a>
+                                <a href="/e_commerce/public/shop" class="text-dark">Shop</a>
                             </li>
                             <li class="mt-4 mb-2">
                                 <a class="shopping-cart text-dark mx-2" href="/e_commerce/public/cart">
-                                    <i class="fa fa-shopping-cart" style="color:#F28123;"></i>
-                                    <sup class="badge" id="cart_item" style="color:#F28123;"></sup>
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <sup class="badge" id="cart_item"></sup>
                                 </a>
                                 <?php
                                 if (isset($_SESSION['user_email'])) {
                                     $link = <<<DELIMETER
-                                        <a href="/e_commerce/public/logout" class="mx-2"  style="color:#F28123;" ><i class="fa fa-lock-open"></i> Logout</a>
+                                        <a href="/e_commerce/public/logout" class="mx-2 text-dark" ><i class="fa fa-lock-open"></i> Logout</a>
                                         DELIMETER;
                                     echo $link;
                                 } else {
                                     $link = <<<DELIMETER
-                                        <a href="/e_commerce/public/register" class="mx-2" style="color:#F28123;"><i class="fa fa-user"></i> Register</a>
-                                        <a href="/e_commerce/public/login" class="mx-2" style="color:#F28123;"><i class="fa fa-lock"></i> Login</a>
+                                        <a href="/e_commerce/public/register" class="mx-2 text-dark" ><i class="fa fa-user"></i> Register</a>
+                                        <a href="/e_commerce/public/login" class="mx-2 text-dark"><i class="fa fa-lock"></i> Login</a>
                                         DELIMETER;
                                     echo $link;
                                 }
@@ -140,7 +140,7 @@
                 </div>
                 <hr class="mb-5">
                 <div class="ml-3 mb-4">
-                    <h5 style="color:#F28123">Our Categories</h5>
+                    <h5 style="color:black;">Our Categories</h5>
                 </div>
                 <ul class="list-group list-group-flush list-unstyled">
                     <!-- categories -->

@@ -17,6 +17,4 @@ if (isset($_SESSION['user_email'])) {
 
     redirect("/e_commerce/public/index");
 }
-
-
 ?>

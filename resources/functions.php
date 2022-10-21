@@ -19,13 +19,6 @@ function set_message($msg)
     }
 }
 
-function display_user()
-{
-    if (isset($_SESSION['username'])) {
-        echo $_SESSION['username'];
-        // unset($_SESSION['user_email']);
-    }
-}
 
 function display_message()
 {
@@ -34,6 +27,15 @@ function display_message()
         unset($_SESSION['msg']);
     }
 }
+
+function display_user()
+{
+    if (isset($_SESSION['username'])) {
+        echo $_SESSION['username'];
+        // unset($_SESSION['user_email']);
+    }
+}
+
 
 function admin_message()
 {
@@ -98,7 +100,6 @@ function brands()
     }
 }
 
-
 // get the product from the database;
 function product_count()
 {
@@ -109,16 +110,16 @@ function product_count()
 }
 
 
-function naturalshampoo()
+function displayNaturalshampoo($cat_id = "4")
 {
-    $query = query("SELECT * FROM products WHERE product_category_id='4' LIMIT 0, 8");
+    $query = query("SELECT * FROM products WHERE product_category_id='{$cat_id}' LIMIT 0, 8");
     confirm($query);
     while ($row = fetch_array($query)) {
 
         $product_title = substr($row['product_title'], 0, 5) . "..";
 
         $products = <<<DELIMETER
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 mb-3 text-center">
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 mb-3 text-center">
                     <div class="card" style="padding:0px; border-radius:14px;">
                         <div class="card-body">
                             <a href="single-product/{$row["product_id"]}/{$row["product_category_id"]}">
@@ -130,7 +131,38 @@ function naturalshampoo()
                                 <h6 class='mb-0'>{$product_title}</h6>
                                 <p class="text-bold">&#36;{$row['product_price']}</p>
                             </div>
-                            <a href="/e_commerce/public/cart/{$row["product_id"]}" add="{$row["product_id"]}" style="background-color:#F28123; border-radius:16px" class="btn btn-sm text-white product" >
+                            <a href="/e_commerce/public/cart/{$row["product_id"]}" add="{$row["product_id"]}" style="background-color:#F28123; border-radius:6px" class="btn btn-sm text-white product" >
+                            Add to <i class="fas fa-shopping-cart"></i></a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        DELIMETER;
+        echo $products;
+    }
+}
+
+
+function displayProductByCategories($cat_id = "7")
+{
+    $query = query("SELECT * FROM products WHERE product_category_id='{$cat_id}' LIMIT 0, 8");
+    confirm($query);
+    while ($row = fetch_array($query)) {
+        $product_title = substr($row['product_title'], 0, 5) . "..";
+        $products = <<<DELIMETER
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-12 col-6 mb-3 text-center">
+                    <div class="card" style="padding:0px; border-radius:14px;">
+                        <div class="card-body">
+                            <a href="single-product/{$row["product_id"]}/{$row["product_category_id"]}">
+                                <img src="/e_commerce/resources/uploads/{$row['product_image']}" alt='' style='height:150px; border-radius:12px;'>
+                            </a>
+                        </div>
+                        <div class="card-footer text-center">
+                            <div>
+                                <h6 class='mb-0'>{$product_title}</h6>
+                                <p class="text-bold">&#36;{$row['product_price']}</p>
+                            </div>
+                            <a href="/e_commerce/public/cart/{$row["product_id"]}" add="{$row["product_id"]}" style="background-color:#F28123; border-radius:6px" class="btn btn-sm text-white product" >
                             Add to <i class="fas fa-shopping-cart"></i></a>
                             </form>
                         </div>
@@ -143,9 +175,11 @@ function naturalshampoo()
 
 // onClick="document.location.reload(true)"
 
-function conditioners()
+
+// display product categories in the shop page;
+function displayProductByCategoriesInShop($cat_id = "5")
 {
-    $query = query("SELECT * FROM products WHERE product_category_id='5' LIMIT 0,8");
+    $query = query("SELECT * FROM products WHERE product_category_id='5' LIMIT 0,12");
     confirm($query);
     while ($row = fetch_array($query)) {
         $product_title = substr($row['product_title'], 0, 5) . "..";
@@ -162,9 +196,8 @@ function conditioners()
                                 <h6 class='mb-0'>{$product_title}</h6>
                                 <p class="text-bold">&#36;{$row['product_price']}</p>
                             </div>
-                            <a href="/e_commerce/public/cart/{$row["product_id"]}" add="{$row["product_id"]}" style="background-color:#F28123; border-radius:16px" class="btn btn-sm text-white product">
+                            <a href="/e_commerce/public/cart/{$row["product_id"]}" add="{$row["product_id"]}" style="background-color:#F28123; border-radius:6px" class="btn btn-sm text-white product">
                             Add to <i class="fas fa-shopping-cart"></i></a>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -177,7 +210,7 @@ function conditioners()
 function shopProducts()
 {
     //&cat_id={$row["product_category_id"]}
-    $query = query("SELECT * FROM products");
+    $query = query("SELECT * FROM products ORDER BY product_keywords");
     confirm($query);
     while ($row = fetch_array($query)) {
         $product_title = substr($row['product_title'], 0, 9) . "..";
@@ -195,7 +228,7 @@ function shopProducts()
                         <h6 class='mb-0'>{$product_title}</h6>
                         <p class="text-bold">&#8358;{$row['product_price']}</p>
                     </div>
-                    <a href="/e_commerce/public/cart/{$row["product_id"]}" add="{$row["product_id"]}"  style="background-color:#F28123; border-radius:16px" class="btn btn-sm text-white product">
+                    <a href="/e_commerce/public/cart/{$row["product_id"]}" add="{$row["product_id"]}"  style="background-color:#F28123; border-radius:6px" class="btn btn-sm text-white product">
                     Add to <i class="fas fa-shopping-cart"></i></a>
                 </div>
             </div>
@@ -753,6 +786,7 @@ if (isset($_GET['rid'])) {
 
 
 if (isset($_POST['cart_count'])) {
+
     $ip_add = getenv("REMOTE_ADDR");
 
     if (isset($_SESSION["user_id"])) {
@@ -771,9 +805,8 @@ if (isset($_POST['cart_count'])) {
 function show_product_based_on_category_clicked()
 {
     if (isset($_GET['cat_id'])) {
-
         $cat_id = $_GET['cat_id'];
-        $query = query("SELECT * FROM products WHERE product_category_id='{$cat_id}'");
+        $query = query("SELECT * FROM products WHERE product_category_id='{$cat_id}' ORDER BY product_price");
         confirm($query);
         $count = mysqli_num_rows($query);
         if ($count > 0) {
@@ -792,7 +825,7 @@ function show_product_based_on_category_clicked()
                                     <h6 class='mb-0'>{$product_title}</h6>
                                     <p class="text-bold">&#8358;{$row['product_price']}</p>
                                 </div>
-                                <a href="/e_commerce/public/cart/{$row["product_id"]}" add="{$row["product_id"]}" style="background-color:#F28123; border-radius:16px" class="btn btn-sm text-white product" onClick="document.location.reload(true)">
+                                <a href="/e_commerce/public/cart/{$row["product_id"]}" add="{$row["product_id"]}" style="background-color:#F28123; border-radius:6px" class="btn btn-sm text-white product" onClick="document.location.reload(true)">
                                 Add to <i class="fas fa-shopping-cart"></i></a>
                                 </form>
                             </div>

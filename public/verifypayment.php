@@ -33,9 +33,9 @@ if (isset($_SESSION['user_id'])) {
 
         $last_id = mysqli_insert_id($conn);
 
-
         $select_cart = query("SELECT * FROM cart WHERE user_id='$customer_id'");
         confirm($select_cart);
+
         while ($rows = fetch_array($select_cart)) {
 
             $product_id = $rows['p_id'];
@@ -47,6 +47,10 @@ if (isset($_SESSION['user_id'])) {
             $insert_report = query("INSERT INTO reports (order_id, product_id, product_title, product_price, product_quantity) VALUES('$last_id', '$product_id', '$product_title', '$product_price','$p_qty')");
             confirm($insert_report);
         }
+
+
+
+
 
         $delete_cart_items = query("DELETE FROM cart WHERE user_id='$customer_id'");
         confirm($delete_cart_items);

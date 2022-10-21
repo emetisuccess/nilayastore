@@ -519,6 +519,29 @@ a.boxed-btn, a.bordered-btn, a.cart-btn {
   opacity: 0.8;
 }
 
+.breadcrumb-section-user {
+  padding: 100px 0;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  z-index: 1;
+  background-attachment: fixed;
+  /* padding-top: 200px; */
+}
+
+.breadcrumb-section-user:after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-color: #012738;
+  z-index: -1;
+  /* opacity: 0.8; */
+}
+
+
 /* -----------------------------------------------------------------------------
 
 # Header Styles

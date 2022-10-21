@@ -33,16 +33,12 @@ if (isset($_GET['addToCart']) && isset($_SESSION['user_id'])) {
 function get_cart_items()
 {
     if (isset($_SESSION['user_id'])) {
-
         $user_id = $_SESSION['user_id'];
-
         $query = query("SELECT a.product_title, a.product_image, a.product_price, a.product_id, b.qty, b.cart_id FROM products a, cart b WHERE a.product_id=b.p_id AND b.user_id=" . escape_string($user_id) . "");
         confirm($query);
         while ($row = fetch_array($query)) {
             $product_quantity = $row['qty'];
-
             $sub = $row['product_price'] *  $product_quantity;
-
             $product = <<<DELIMETER
                      <tr>
                      <td style="vertical-align: middle;">
